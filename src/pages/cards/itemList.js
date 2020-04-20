@@ -4,12 +4,14 @@ import { Text, Button } from 'react-native-paper'
 import { useQuery } from "@apollo/react-hooks"
 import { GET_ITEMS } from 'src/pages/cards/queries'
 import CardItem from 'src/components/cards'
+import ProgressBar from 'src/components/progressBar'
+
 const item_limit = 2
 const ItemList = (props) => {
     const { data, loading, error, fetchMore } = useQuery(GET_ITEMS, {
-        variables: { title: '', limit: item_limit, cursor: '' },
+        variables: { title: props.title, limit: item_limit, cursor: '' },
     })
-    if (loading) return <Text>loading..</Text>
+    if (loading) return <ProgressBar isLoading={loading} loaderText='' />
     if (error) return <Text>ERROR</Text>
     if (!data) return <Text>Not found</Text>
 
@@ -44,7 +46,7 @@ const ItemList = (props) => {
                             onPress={() => {
                                 fetchMore({
                                     query: GET_ITEMS,
-                                    variables: { title: '', limit: item_limit, cursor: cursor },///props.serachText
+                                    variables: { title: props.title, limit: item_limit, cursor: cursor },///props.serachText
                                     updateQuery: (previousResult, { fetchMoreResult }) => {
                                         if (!fetchMoreResult) return previousResult
                                         return {

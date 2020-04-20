@@ -53,18 +53,18 @@ class AddItem extends React.Component {
                                 name: yup
                                     .string()
                                     .max(10)
-                                //.required()
+                                    .required()
                                 ,
                                 title: yup
                                     .string()
-                                    .max(10)
-                                //.required()
+                                    .max(200)
+                                    .required()
                                 ,
                                 description: yup
                                     .string()
                                     .matches(/^[a-zA-Z0-9,.!? ]*$/, 'only alphanumeric , . !')
-                                    .max(100)
-                                //.required()
+                                    .max(500)
+                                    .required()
                             })}>
                             {({ values, handleChange, errors, setFieldTouched, touched, isValid, handleSubmit }) => (
                                 <View style={styleThis.viewBoxForm}>
@@ -210,11 +210,11 @@ class AddItem extends React.Component {
         const response = await this.props
             .addGalleryItem({
                 userId: '',
-                userName: 'ram',//values.name,
+                userName: values.name,
                 timeStamp: Date.now().toString(),
                 date: this.formatDate(new Date(Date.now())),
                 url: this.state.photo.fileName,
-                title: 'nature',//values.title,
+                title: values.title,
                 subHeader: '',
                 description: values.description,
             })

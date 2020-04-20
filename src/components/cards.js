@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, Image, View } from 'react-native'
-import { Card, Title, Paragraph } from 'react-native-paper'
+import { Card, Title, Paragraph, Caption, Subheading } from 'react-native-paper'
 import { Common, Color } from 'src/styles/main'
 import { BASE_URL } from 'src/config'
 
@@ -16,9 +16,10 @@ const CardItem = (props) => {
                     /> : <Card.Cover source={{ uri: `${BASE_URL}/uploads/${props.item.url}` }} />
                 }
 
-                <Card.Content>
-                    <Title>{props.item.title}</Title>
-                    <Paragraph>{props.item.title}</Paragraph>
+                <Card.Content style={{ height: 120 }}>
+                    <Subheading style={{ overflow: 'scroll', maxHeight: 25, color: Color.gray900 }}>{props.item.userName}</Subheading>
+                    <Caption style={{ overflow: 'scroll', maxHeight: 20, color: Color.gray900 }}>{props.item.title}</Caption>
+                    <Caption style={{ overflow: 'scroll', maxHeight: 60 }}>{props.item.description}</Caption>
                 </Card.Content>
             </Card>
         </View>

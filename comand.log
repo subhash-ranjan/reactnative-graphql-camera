@@ -13,13 +13,9 @@ mutation{
   }
 }
 
-
-
-
 'show date'
 new Date(item.date).toDateString()
-
-//reload app in device
+'reload app in device'
 adb shell input keyevent 82
-//logs
+'logs'
 react-native log-ios
