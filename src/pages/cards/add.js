@@ -21,7 +21,7 @@ const options = {
         path: 'images',
     },
 }
-const item_limit = 2
+const item_limit = 10
 
 class AddItem extends React.Component {
     constructor(props) {

@@ -6,7 +6,7 @@ import { GET_ITEMS } from 'src/pages/cards/queries'
 import CardItem from 'src/components/cards'
 import ProgressBar from 'src/components/progressBar'
 
-const item_limit = 2
+const item_limit = 10
 const ItemList = (props) => {
     const { data, loading, error, fetchMore } = useQuery(GET_ITEMS, {
         variables: { title: props.title, limit: item_limit, cursor: '' },
