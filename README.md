@@ -1,7 +1,12 @@
-# Demo app to demonstrate GraphQl with React Native 
+### Demo app to demonstrate GraphQl with React Native 
 
-ReactNative, GraphQL, RN Camera Fetaures, MaterialUI
+#### Stack
+- ReactNative
+- GraphQL
+- RN Camera Fetaures
+- MaterialUI
 
+#### Installation
 - git clone rn-gql-camera
 - cd rn-gql-camera
 - yarn install
